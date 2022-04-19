@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ea1c7be2-0078-40e8-b0f6-59fd14337ac1": {
+      "ProjectGuid": "ea1c7be2-0078-40e8-b0f6-59fd14337ac1",
+      "DisplayName": "CityFastAPI",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
