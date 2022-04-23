@@ -23,7 +23,8 @@ namespace CityFastAPI.Models
         public int idВодит { get; set; }
         public string фиоВодит { get; set; }
         public string телВодит { get; set; }
-        public string пароль { get; set; }
+        public string парольВодит { get; set; }
+        public string токенВодит { get; set; }
         public string маркаАвто { get; set; }
         public string номерАвто { get; set; }
     

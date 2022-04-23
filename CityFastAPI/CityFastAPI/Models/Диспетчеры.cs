@@ -23,7 +23,8 @@ namespace CityFastAPI.Models
         public int idДисп { get; set; }
         public string фиоДисп { get; set; }
         public string телДисп { get; set; }
-        public string пароль { get; set; }
+        public string парольДисп { get; set; }
+        public string токенДисп { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Заказы> Заказы { get; set; }

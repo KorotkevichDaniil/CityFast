@@ -1,24 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Web;
+using System.Text;
 
 namespace CityFastAPI.Models
 {
     public class Order
     {
         public int Id { get; set; }
-        public bool fastOrder { get; set; }
-        public string Tel { get; set; }
-        public string Password { get; set; }
+        public int Cost { get; set; }
+        public bool Status { get; set; }
 
-        public Order(Заказы ord)
+        public Order(Заказы or)
         {
-            this.Id = ord.idДисп;
-            this.FIO = ord.фиоДисп;
-            this.Tel = ord.телДисп;
-            this.Password = ord.пароль;
+            this.Id = or.idЗаказа;
+            this.Cost = or.стоимость;
+            this.Status = or.статус;
         }
-
     }
 }

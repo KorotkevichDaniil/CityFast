@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище CityFastModelContainer" CdmEntityContainer="CityFastEntities1">
+    <EntitySetMapping Name="Водители">
+      <EntityTypeMapping TypeName="CityFastModel.Водители">
+        <MappingFragment StoreEntitySet="Водители">
+          <ScalarProperty Name="idВодит" ColumnName="idВодит" />
+          <ScalarProperty Name="фиоВодит" ColumnName="фиоВодит" />
+          <ScalarProperty Name="телВодит" ColumnName="телВодит" />
+          <ScalarProperty Name="парольВодит" ColumnName="парольВодит" />
+          <ScalarProperty Name="токенВодит" ColumnName="токенВодит" />
+          <ScalarProperty Name="маркаАвто" ColumnName="маркаАвто" />
+          <ScalarProperty Name="номерАвто" ColumnName="номерАвто" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Диспетчеры">
+      <EntityTypeMapping TypeName="CityFastModel.Диспетчеры">
+        <MappingFragment StoreEntitySet="Диспетчеры">
+          <ScalarProperty Name="idДисп" ColumnName="idДисп" />
+          <ScalarProperty Name="фиоДисп" ColumnName="фиоДисп" />
+          <ScalarProperty Name="телДисп" ColumnName="телДисп" />
+          <ScalarProperty Name="парольДисп" ColumnName="парольДисп" />
+          <ScalarProperty Name="токенДисп" ColumnName="токенДисп" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Заказы">
+      <EntityTypeMapping TypeName="CityFastModel.Заказы">
+        <MappingFragment StoreEntitySet="Заказы">
+          <ScalarProperty Name="idЗаказа" ColumnName="idЗаказа" />
+          <ScalarProperty Name="срочныйЗаказ" ColumnName="срочныйЗаказ" />
+          <ScalarProperty Name="времяПриезда" ColumnName="времяПриезда" />
+          <ScalarProperty Name="улицаОт" ColumnName="улицаОт" />
+          <ScalarProperty Name="домОт" ColumnName="домОт" />
+          <ScalarProperty Name="подъездОт" ColumnName="подъездОт" />
+          <ScalarProperty Name="улицаДо" ColumnName="улицаДо" />
+          <ScalarProperty Name="домДо" ColumnName="домДо" />
+          <ScalarProperty Name="подъездДо" ColumnName="подъездДо" />
+          <ScalarProperty Name="допАдрес" ColumnName="допАдрес" />
+          <ScalarProperty Name="улицаДоп" ColumnName="улицаДоп" />
+          <ScalarProperty Name="домДоп" ColumnName="домДоп" />
+          <ScalarProperty Name="подъездДоп" ColumnName="подъездДоп" />
+          <ScalarProperty Name="перевозкаЖивотн" ColumnName="перевозкаЖивотн" />
+          <ScalarProperty Name="детскКресло" ColumnName="детскКресло" />
+          <ScalarProperty Name="ВозрастРебёнка" ColumnName="ВозрастРебёнка" />
+          <ScalarProperty Name="некурСалон" ColumnName="некурСалон" />
+          <ScalarProperty Name="стоимость" ColumnName="стоимость" />
+          <ScalarProperty Name="idДисп" ColumnName="idДисп" />
+          <ScalarProperty Name="idКл" ColumnName="idКл" />
+          <ScalarProperty Name="idВодит" ColumnName="idВодит" />
+          <ScalarProperty Name="статус" ColumnName="статус" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Клиенты">
+      <EntityTypeMapping TypeName="CityFastModel.Клиенты">
+        <MappingFragment StoreEntitySet="Клиенты">
+          <ScalarProperty Name="idКл" ColumnName="idКл" />
+          <ScalarProperty Name="фиоКл" ColumnName="фиоКл" />
+          <ScalarProperty Name="телКл" ColumnName="телКл" />
+          <ScalarProperty Name="парольКл" ColumnName="парольКл" />
+          <ScalarProperty Name="токенКл" ColumnName="токенКл" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

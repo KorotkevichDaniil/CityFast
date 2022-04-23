@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CityFastModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Водители">
+    <Key>
+      <PropertyRef Name="idВодит" />
+    </Key>
+    <Property Name="idВодит" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="фиоВодит" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="телВодит" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="парольВодит" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="токенВодит" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="маркаАвто" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="номерАвто" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Заказы" Relationship="Self.FK_idВодит" FromRole="Водители" ToRole="Заказы" />
+  </EntityType>
+  <EntityType Name="Диспетчеры">
+    <Key>
+      <PropertyRef Name="idДисп" />
+    </Key>
+    <Property Name="idДисп" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="фиоДисп" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="телДисп" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="парольДисп" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="токенДисп" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Заказы" Relationship="Self.FK_idДисп" FromRole="Диспетчеры" ToRole="Заказы" />
+  </EntityType>
+  <EntityType Name="Заказы">
+    <Key>
+      <PropertyRef Name="idЗаказа" />
+    </Key>
+    <Property Name="idЗаказа" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="срочныйЗаказ" Type="Boolean" Nullable="false" />
+    <Property Name="времяПриезда" Type="Time" Precision="7" />
+    <Property Name="улицаОт" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="домОт" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="подъездОт" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="улицаДо" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="домДо" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="подъездДо" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="допАдрес" Type="Boolean" Nullable="false" />
+    <Property Name="улицаДоп" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="домДоп" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="подъездДоп" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="перевозкаЖивотн" Type="Boolean" Nullable="false" />
+    <Property Name="детскКресло" Type="Boolean" Nullable="false" />
+    <Property Name="ВозрастРебёнка" Type="Int32" />
+    <Property Name="некурСалон" Type="Boolean" Nullable="false" />
+    <Property Name="стоимость" Type="Int32" Nullable="false" />
+    <Property Name="idДисп" Type="Int32" Nullable="false" />
+    <Property Name="idКл" Type="Int32" Nullable="false" />
+    <Property Name="idВодит" Type="Int32" Nullable="false" />
+    <Property Name="статус" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Водители" Relationship="Self.FK_idВодит" FromRole="Заказы" ToRole="Водители" />
+    <NavigationProperty Name="Диспетчеры" Relationship="Self.FK_idДисп" FromRole="Заказы" ToRole="Диспетчеры" />
+    <NavigationProperty Name="Клиенты" Relationship="Self.FK_idКл" FromRole="Заказы" ToRole="Клиенты" />
+  </EntityType>
+  <EntityType Name="Клиенты">
+    <Key>
+      <PropertyRef Name="idКл" />
+    </Key>
+    <Property Name="idКл" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="фиоКл" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="телКл" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="парольКл" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="токенКл" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Заказы" Relationship="Self.FK_idКл" FromRole="Клиенты" ToRole="Заказы" />
+  </EntityType>
+  <Association Name="FK_idВодит">
+    <End Role="Водители" Type="Self.Водители" Multiplicity="1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Водители">
+        <PropertyRef Name="idВодит" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="idВодит" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_idДисп">
+    <End Role="Диспетчеры" Type="Self.Диспетчеры" Multiplicity="1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Диспетчеры">
+        <PropertyRef Name="idДисп" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="idДисп" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_idКл">
+    <End Role="Клиенты" Type="Self.Клиенты" Multiplicity="1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Клиенты">
+        <PropertyRef Name="idКл" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="idКл" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CityFastEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Водители" EntityType="Self.Водители" />
+    <EntitySet Name="Диспетчеры" EntityType="Self.Диспетчеры" />
+    <EntitySet Name="Заказы" EntityType="Self.Заказы" />
+    <EntitySet Name="Клиенты" EntityType="Self.Клиенты" />
+    <AssociationSet Name="FK_idВодит" Association="Self.FK_idВодит">
+      <End Role="Водители" EntitySet="Водители" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_idДисп" Association="Self.FK_idДисп">
+      <End Role="Диспетчеры" EntitySet="Диспетчеры" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_idКл" Association="Self.FK_idКл">
+      <End Role="Клиенты" EntitySet="Клиенты" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

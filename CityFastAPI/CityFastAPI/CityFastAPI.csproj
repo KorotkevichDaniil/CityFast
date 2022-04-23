@@ -162,42 +162,38 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\Controllers.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Client.cs" />
-    <Compile Include="Models\Dispatcher.cs" />
-    <Compile Include="Models\Driver.cs" />
-    <Compile Include="Models\ModelCityFastDB.Context.cs">
+    <Compile Include="Models\CityFastModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelCityFastDB.Context.tt</DependentUpon>
+      <DependentUpon>CityFastModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelCityFastDB.cs">
+    <Compile Include="Models\CityFastModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelCityFastDB.tt</DependentUpon>
+      <DependentUpon>CityFastModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelCityFastDB.Designer.cs">
+    <Compile Include="Models\CityFastModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelCityFastDB.edmx</DependentUpon>
+      <DependentUpon>CityFastModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Водители.cs">
-      <DependentUpon>ModelCityFastDB.tt</DependentUpon>
+      <DependentUpon>CityFastModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Диспетчеры.cs">
-      <DependentUpon>ModelCityFastDB.tt</DependentUpon>
+      <DependentUpon>CityFastModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Заказы.cs">
-      <DependentUpon>ModelCityFastDB.tt</DependentUpon>
+      <DependentUpon>CityFastModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Клиенты.cs">
-      <DependentUpon>ModelCityFastDB.tt</DependentUpon>
+      <DependentUpon>CityFastModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -210,15 +206,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\ModelCityFastDB.Context.tt">
+    <Content Include="Models\CityFastModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelCityFastDB.Context.cs</LastGenOutput>
-      <DependentUpon>ModelCityFastDB.edmx</DependentUpon>
+      <DependentUpon>CityFastModel.edmx</DependentUpon>
+      <LastGenOutput>CityFastModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ModelCityFastDB.tt">
+    <Content Include="Models\CityFastModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelCityFastDB.edmx</DependentUpon>
-      <LastGenOutput>ModelCityFastDB.cs</LastGenOutput>
+      <DependentUpon>CityFastModel.edmx</DependentUpon>
+      <LastGenOutput>CityFastModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -241,12 +237,12 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Models\ModelCityFastDB.edmx">
+    <EntityDeploy Include="Models\CityFastModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelCityFastDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>CityFastModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\ModelCityFastDB.edmx.diagram">
-      <DependentUpon>ModelCityFastDB.edmx</DependentUpon>
+    <Content Include="Models\CityFastModel.edmx.diagram">
+      <DependentUpon>CityFastModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

@@ -23,18 +23,19 @@ namespace CityFastAPI.Models
         public string улицаДо { get; set; }
         public string домДо { get; set; }
         public string подъездДо { get; set; }
-        public Nullable<bool> допАдрес { get; set; }
+        public bool допАдрес { get; set; }
         public string улицаДоп { get; set; }
         public string домДоп { get; set; }
         public string подъездДоп { get; set; }
-        public Nullable<bool> перевозкаЖивотн { get; set; }
-        public Nullable<bool> детскКресло { get; set; }
+        public bool перевозкаЖивотн { get; set; }
+        public bool детскКресло { get; set; }
         public Nullable<int> ВозрастРебёнка { get; set; }
-        public Nullable<bool> некурСалон { get; set; }
-        public Nullable<int> Стоимость { get; set; }
-        public Nullable<int> idДисп { get; set; }
-        public Nullable<int> idКл { get; set; }
-        public Nullable<int> idВодит { get; set; }
+        public bool некурСалон { get; set; }
+        public int стоимость { get; set; }
+        public int idДисп { get; set; }
+        public int idКл { get; set; }
+        public int idВодит { get; set; }
+        public bool статус { get; set; }
     
         public virtual Водители Водители { get; set; }
         public virtual Диспетчеры Диспетчеры { get; set; }

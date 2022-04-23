@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище CityFastModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Водители">
+    <Key>
+      <PropertyRef Name="idВодит" />
+    </Key>
+    <Property Name="idВодит" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="фиоВодит" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="телВодит" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="парольВодит" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="токенВодит" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="маркаАвто" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="номерАвто" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Диспетчеры">
+    <Key>
+      <PropertyRef Name="idДисп" />
+    </Key>
+    <Property Name="idДисп" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="фиоДисп" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="телДисп" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="парольДисп" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="токенДисп" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Заказы">
+    <Key>
+      <PropertyRef Name="idЗаказа" />
+    </Key>
+    <Property Name="idЗаказа" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="срочныйЗаказ" Type="bit" Nullable="false" />
+    <Property Name="времяПриезда" Type="time" Precision="7" />
+    <Property Name="улицаОт" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="домОт" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="подъездОт" Type="nvarchar" MaxLength="50" />
+    <Property Name="улицаДо" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="домДо" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="подъездДо" Type="nvarchar" MaxLength="50" />
+    <Property Name="допАдрес" Type="bit" Nullable="false" />
+    <Property Name="улицаДоп" Type="nvarchar" MaxLength="50" />
+    <Property Name="домДоп" Type="nvarchar" MaxLength="50" />
+    <Property Name="подъездДоп" Type="nvarchar" MaxLength="50" />
+    <Property Name="перевозкаЖивотн" Type="bit" Nullable="false" />
+    <Property Name="детскКресло" Type="bit" Nullable="false" />
+    <Property Name="ВозрастРебёнка" Type="int" />
+    <Property Name="некурСалон" Type="bit" Nullable="false" />
+    <Property Name="стоимость" Type="int" Nullable="false" />
+    <Property Name="idДисп" Type="int" Nullable="false" />
+    <Property Name="idКл" Type="int" Nullable="false" />
+    <Property Name="idВодит" Type="int" Nullable="false" />
+    <Property Name="статус" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Клиенты">
+    <Key>
+      <PropertyRef Name="idКл" />
+    </Key>
+    <Property Name="idКл" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="фиоКл" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="телКл" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="парольКл" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="токенКл" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_idВодит">
+    <End Role="Водители" Type="Self.Водители" Multiplicity="1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Водители">
+        <PropertyRef Name="idВодит" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="idВодит" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_idДисп">
+    <End Role="Диспетчеры" Type="Self.Диспетчеры" Multiplicity="1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Диспетчеры">
+        <PropertyRef Name="idДисп" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="idДисп" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_idКл">
+    <End Role="Клиенты" Type="Self.Клиенты" Multiplicity="1" />
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Клиенты">
+        <PropertyRef Name="idКл" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="idКл" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище CityFastModelContainer">
+    <EntitySet Name="Водители" EntityType="Self.Водители" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Диспетчеры" EntityType="Self.Диспетчеры" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Заказы" EntityType="Self.Заказы" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Клиенты" EntityType="Self.Клиенты" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_idВодит" Association="Self.FK_idВодит">
+      <End Role="Водители" EntitySet="Водители" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_idДисп" Association="Self.FK_idДисп">
+      <End Role="Диспетчеры" EntitySet="Диспетчеры" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_idКл" Association="Self.FK_idКл">
+      <End Role="Клиенты" EntitySet="Клиенты" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
